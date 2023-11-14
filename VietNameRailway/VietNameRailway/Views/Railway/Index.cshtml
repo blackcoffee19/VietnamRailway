@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Station>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>List Ga Tau</h2>
+    <a asp-controller="Railway" asp-action="ListToa">Back To List Toa Tau</a>
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x=>Model.First().Id)</th>
+                <th>@Html.DisplayNameFor(x=>Model.First().MaGa)</th>
+                <th>@Html.DisplayNameFor(x=>Model.First().TenGa)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(x=>item.Id)</td>
+                        <td>@Html.DisplayFor(x=>item.MaGa)</td>
+                        <td>@Html.DisplayFor(x=>item.TenGa)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

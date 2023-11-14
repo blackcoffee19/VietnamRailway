@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Carriages>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListToa</title>
+</head>
+<body>
+    <a asp-controller="Railway" asp-action="Index">Back To List Ga Tau</a>
+    <h2>List Toa Tau</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x=>Model.First().ToaXe)</th>
+                <th>@Html.DisplayNameFor(x=>Model.First().DienGiai)</th>
+                <th>@Html.DisplayNameFor(x=>Model.First().LayoutId)</th>
+                <th>@Html.DisplayNameFor(x=>Model.First().NhomCho)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(x=>item.ToaXe)</td>
+                        <td>@Html.DisplayFor(x=>item.DienGiai)</td>
+                        <td>@Html.DisplayFor(x=>item.LayoutId)</td>
+                        <td>@Html.DisplayFor(x=>item.NhomCho)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>
