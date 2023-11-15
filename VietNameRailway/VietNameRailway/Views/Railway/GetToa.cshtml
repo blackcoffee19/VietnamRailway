@@ -1,0 +1,130 @@
+﻿@model Booking
+@{
+    Layout = null;
+    List<Train> trains = Model.TauDis.ToList();
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetToa</title>
+</head>
+<body>
+    <h2>Search Chuyen Tau</h2>
+    <h3><b>@Html.DisplayNameFor(x=>Model.BookingCode) </b>: @Model.BookingCode</h3>
+    <h3><b>@Html.DisplayNameFor(x=>Model.TauDis) </b>: @Model.TauDis.Count</h3>
+    <h3><b>@Html.DisplayNameFor(x=>Model.TauVes) </b>: @Model.TauVes</h3>
+    <h3><b>@Html.DisplayNameFor(x=>Model.TauVeAlias) </b>: @Model.TauVeAlias</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x=>trains.First().Id)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().DMTauVatLy)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().MacTau)</th>
+                <th><span style="color:red">@Html.DisplayNameFor(x=>trains.First().TenGaDen)</span> - <span style="color:blue">@Html.DisplayNameFor(x=>trains.First().TenGaDi)</span></th>
+                <th>@Html.DisplayNameFor(x=>trains.First().NgayXP)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().Ngay)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().TongChoCon)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().HanhTrinhID)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().ToaXes)</th>
+                <th>@Html.DisplayNameFor(x=>trains.First().BangGiaVes)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (trains.Any())
+            {
+                @foreach(var item in trains)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(x=>item.Id)</td>
+                        <td><span>@Html.DisplayFor(x=>item.DMTauVatLyId)</span><span>@Html.DisplayFor(x=>item.DMTauVatLy)</span></td>
+                        <td>@Html.DisplayFor(x=>item.MacTau)</td>
+                        <td><span style="color:red">@Html.DisplayFor(x=>item.TenGaDen)</span> - <span style="color:blue">@Html.DisplayFor(x=>item.TenGaDi)</span></td>
+                        <td><span>@Html.DisplayFor(x=>item.NgayDi)</span> - <span>@Html.DisplayFor(x=>item.NgayDen)</span></td>
+                        <td>@Html.DisplayFor(x=>item.Ngay)</td>
+                        <td>@Html.DisplayFor(x=>item.TongChoCon)</td>
+                        <td>@Html.DisplayFor(x=>item.HanhTrinhID)</td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(x=>item.ToaXes!.First().ToaSo)</th>
+                                        <th>@Html.DisplayNameFor(x=>item.ToaXes!.First().ToaXe)</th>
+                                        <th>@Html.DisplayNameFor(x=>item.ToaXes!.First().ToaXeLayout)</th>
+                                        <th>@Html.DisplayNameFor(x=>item.ToaXes!.First().SoChoCon)</th>
+                                        <th>@Html.DisplayNameFor(x=>item.ToaXes!.First().ToaXeDienGiai)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (item.ToaXes!.Any())
+                                    {
+                                        @foreach(var item2 in item.ToaXes)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(x=>item2.ToaSo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(x=>item2.ToaXe)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(x=>item2.ToaXeLayout)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(x=>item2.SoChoCon)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(x=>item2.ToaXeDienGiai)
+                                                </td>
+                                            </tr>
+                                        }
+                                    }else{
+                                        <tr><td colspan="4">No Data</td></tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            @if (item.BangGiaVes.Any())
+                            {
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>@Html.DisplayNameFor(x=>item.BangGiaVes.First().LoaiCho)</th>
+                                            <th>@Html.DisplayNameFor(x=>item.BangGiaVes.First().TenLoaiCho)</th>
+                                            <th>@Html.DisplayNameFor(x=>item.BangGiaVes.First().GiaVe)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item3 in item.BangGiaVes)
+                                        {
+                                            <tr>
+                                                <td>@Html.DisplayFor(x=>item3.LoaiCho)</td>
+                                                <td>@Html.DisplayFor(x=>item3.TenLoaiCho)</td>
+                                                <td>@Html.DisplayFor(x=>item3.GiaVe)</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <p>Không có bảng giá vé.</p>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="11">No data</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

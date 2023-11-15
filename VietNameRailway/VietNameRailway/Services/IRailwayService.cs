@@ -6,5 +6,6 @@ namespace VietNameRailway.Services
     {
         public Task<List<Station>?> GetAllGaBacNam();
         public Task<List<Carriages>?> GetAllToaXe();
+        public Task<Booking?> SearchTauByGaDiGaDenNgayXP();
     }
 }

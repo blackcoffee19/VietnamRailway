@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\didi0\\eProject\\demo\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj": {}
+    "D:\\VietnamRailway\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj": {}
   },
   "projects": {
-    "C:\\Users\\didi0\\eProject\\demo\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj": {
+    "D:\\VietnamRailway\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\didi0\\eProject\\demo\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj",
+        "projectUniqueName": "D:\\VietnamRailway\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj",
         "projectName": "VietNameRailway",
-        "projectPath": "C:\\Users\\didi0\\eProject\\demo\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj",
+        "projectPath": "D:\\VietnamRailway\\VietNameRailway\\VietNameRailway\\VietNameRailway.csproj",
         "packagesPath": "C:\\Users\\didi0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\didi0\\eProject\\demo\\VietNameRailway\\VietNameRailway\\obj\\",
+        "outputPath": "D:\\VietnamRailway\\VietNameRailway\\VietNameRailway\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\didi0\\AppData\\Roaming\\NuGet\\NuGet.Config",

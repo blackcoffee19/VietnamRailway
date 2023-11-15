@@ -21,5 +21,11 @@ namespace VietNameRailway.Controllers
             IEnumerable<Carriages> list = await service.GetAllToaXe();
             return View(list);
         }
+        public async Task<IActionResult> GetToa()
+        {
+            Booking? book = await service.SearchTauByGaDiGaDenNgayXP();
+            
+            return View(book);
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace VietNameRailway.Services
             }
             return list;
         }
+        
         public class SearchTau
         {
             public string GaDi { get; set; }
@@ -43,11 +44,21 @@ namespace VietNameRailway.Services
             public bool khuHoi {  get; set; }
             
         }
-        public async Task<bool> SearchTauByGaDiGaDenNgayXP(string gaDi, string gaDen, string ngayDi, string ngayVe, bool khuHoi)
+        //string gaDi, string gaDen, string ngayDi, string ngayVe, bool khuHoi
+        public async Task<Booking?> SearchTauByGaDiGaDenNgayXP()
         {
             string url = BASE_URL + "SearchTauByGaDiGaDenNgayXP";
-            string json = "{ 1 : 'SGO', 2 = 'HNO', 3 : '2023-11-15', 4 : '2023-11-15', 5 : true, 6 = '' }";
-            return true;            
-        }
+            string json = "{ 1 : 'SGO', 2 : 'HNO', 3 : '2023-11-17', 4 : '2023-11-17', 5 : true, 6 : '' }";
+            Console.WriteLine(JsonConvert.DeserializeObject(json));
+            var strcontent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            var resp = await client.PostAsync(url, strcontent);
+            if (resp.IsSuccessStatusCode)
+            {
+                var result = await resp.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Booking>(result);
+
+            }
+            return null;            
+        } 
     }
 }
